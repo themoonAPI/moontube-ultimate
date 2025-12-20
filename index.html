@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonTube</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Peaceful Intro -->
+    <div id="intro" class="intro-active">
+        <div class="intro-content">
+            <img src="banner.png" alt="MOON" class="intro-banner">
+            <p>Welcome to the lunar side of videos</p>
+            <button id="enter-btn">Enter MoonTube</button>
+        </div>
+        <audio id="bg-music" loop autoplay>
+            <source src="calm-ambient.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Main Ultimate Hub -->
+    <div id="main" class="hidden">
+        <header>
+            <img src="banner.png" alt="MOON" class="banner">
+            <input type="text" id="search" placeholder="Search any YouTube video">
+        </header>
+        <div id="video-grid" class="video-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
