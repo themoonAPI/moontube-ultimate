@@ -1,39 +1,515 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080610">
+
     <title>MoonTube Ultimate</title>
+
+    <meta name="description" content="MoonTube Ultimate - Your personal lunar video experience.">
+
+    <link rel="icon" href="banner.png">
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Peaceful Intro -->
-    <div id="intro" class="intro-active">
-        <div class="intro-content">
-            <img src="banner.png" alt="MOON" class="intro-banner">
-            <p>Enter the lunar video realm</p>
-            <button id="enter-btn">Enter MoonTube</button>
+
+    <!-- INTRO SCREEN -->
+
+    <section id="intro" class="intro intro-active">
+
+        <div class="intro-background">
+            <div class="intro-glow intro-glow-one"></div>
+            <div class="intro-glow intro-glow-two"></div>
+            <div class="intro-stars"></div>
         </div>
-        <audio id="bg-music" loop>
+
+        <div class="intro-content">
+
+            <div class="intro-brand">
+                <img src="banner.png" alt="MoonTube" class="intro-banner">
+            </div>
+
+            <div class="intro-divider"></div>
+
+            <p class="intro-eyebrow">A NEW WAY TO EXPERIENCE VIDEO</p>
+
+            <h1>ENTER THE <span>LUNAR REALM.</span></h1>
+
+            <p class="intro-description">
+                Your videos. Your universe. Your experience.
+            </p>
+
+            <button id="enter-btn" class="enter-btn" type="button">
+                <span>Enter MoonTube</span>
+            </button>
+
+            <p class="intro-footer">
+                MOONTUBE ULTIMATE
+            </p>
+
+        </div>
+
+        <div class="intro-bottom">
+            <span>ESTABLISHED FOR THE CURIOUS</span>
+            <span>MOONTUBE EXPERIENCE</span>
+        </div>
+
+        <audio id="bg-music" loop preload="auto">
             <source src="calm-ambient.mp3" type="audio/mpeg">
         </audio>
-    </div>
 
-    <!-- Main Searcher -->
-    <div id="main" class="hidden">
-        <header>
-            <img src="banner.png" alt="MOON" class="banner">
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Paste YouTube URL or video ID">
-                <button id="play-btn">Play</button>
+    </section>
+
+
+    <!-- MAIN APPLICATION -->
+
+    <div id="main" class="app hidden">
+
+        <!-- NAVIGATION -->
+
+        <header class="navbar">
+
+            <div class="navbar-left">
+
+                <a href="#" class="brand" aria-label="MoonTube home">
+                    <img src="banner.png" alt="MoonTube" class="banner">
+                </a>
+
             </div>
+
+            <div class="navbar-center">
+
+                <form id="search-form" class="search-bar">
+
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search or paste a YouTube video URL"
+                        autocomplete="off"
+                        spellcheck="false"
+                        aria-label="Search videos"
+                    >
+
+                    <button id="play-btn" type="submit">
+                        Search
+                    </button>
+
+                </form>
+
+            </div>
+
+            <div class="navbar-right">
+
+                <div class="connection-status">
+                    <span class="connection-dot"></span>
+                    <span id="connection-text">Ready to watch</span>
+                </div>
+
+                <button id="music-toggle" class="nav-button" type="button">
+                    Music On
+                </button>
+
+            </div>
+
         </header>
 
-        <main class="player-container">
-            <iframe id="player" src="" allowfullscreen></iframe>
-        </main>
+
+        <!-- APPLICATION BODY -->
+
+        <div class="app-layout">
+
+
+            <!-- SIDEBAR -->
+
+            <aside class="sidebar">
+
+                <div class="sidebar-section">
+
+                    <p class="sidebar-heading">DISCOVER</p>
+
+                    <button class="sidebar-link active" id="home-btn" type="button">
+                        <span>Home</span>
+                    </button>
+
+                    <button class="sidebar-link" id="explore-btn" type="button">
+                        <span>Explore</span>
+                    </button>
+
+                    <button class="sidebar-link" id="recent-btn" type="button">
+                        <span>Recently Watched</span>
+                    </button>
+
+                </div>
+
+
+                <div class="sidebar-section">
+
+                    <p class="sidebar-heading">YOUR LIBRARY</p>
+
+                    <button class="sidebar-link" id="queue-btn" type="button">
+                        <span>Watch Queue</span>
+                    </button>
+
+                    <button class="sidebar-link" id="favorites-btn" type="button">
+                        <span>Favorites</span>
+                    </button>
+
+                </div>
+
+
+                <div class="sidebar-bottom">
+
+                    <div class="sidebar-brand">
+                        <img src="banner.png" alt="">
+                        <div>
+                            <strong>MoonTube</strong>
+                            <span>Ultimate Edition</span>
+                        </div>
+                    </div>
+
+                    <p>Made for your universe.</p>
+
+                </div>
+
+            </aside>
+
+
+            <!-- MAIN CONTENT -->
+
+            <main class="main-content" id="main-content">
+
+
+                <!-- HOME VIEW -->
+
+                <section id="home-view" class="page-view active-view">
+
+
+                    <!-- HERO -->
+
+                    <section class="hero">
+
+                        <div class="hero-background"></div>
+
+                        <div class="hero-content">
+
+                            <p class="hero-label">WELCOME TO YOUR UNIVERSE</p>
+
+                            <h1>
+                                YOUR NEXT<br>
+                                <span>FAVORITE VIDEO.</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                Find a video, press play, and enjoy your own personal viewing experience.
+                            </p>
+
+                            <button id="hero-search-btn" class="hero-button" type="button">
+                                Start Watching
+                            </button>
+
+                        </div>
+
+                        <div class="hero-decoration">
+                            <img src="banner.png" alt="">
+                        </div>
+
+                    </section>
+
+
+                    <!-- PLAYER SECTION -->
+
+                    <section class="watch-section">
+
+                        <div class="section-heading">
+
+                            <div>
+                                <p class="section-eyebrow">YOUR PERSONAL THEATER</p>
+                                <h2>Now Playing</h2>
+                                <p class="section-subtitle">
+                                    Your video experience starts here.
+                                </p>
+                            </div>
+
+                            <span class="live-label">MOONTUBE PLAYER</span>
+
+                        </div>
+
+
+                        <div class="player-wrapper">
+
+                            <div id="player-loading" class="player-loading hidden">
+
+                                <div class="loading-animation"></div>
+
+                                <h3>Preparing your video</h3>
+
+                                <p>Please wait while MoonTube loads your content.</p>
+
+                            </div>
+
+
+                            <div id="player-placeholder" class="player-placeholder">
+
+                                <div class="placeholder-glow"></div>
+
+                                <img src="banner.png" alt="MoonTube">
+
+                                <p class="placeholder-label">YOUR PERSONAL THEATER</p>
+
+                                <h3>Ready when you are.</h3>
+
+                                <p>
+                                    Enter a YouTube video URL or video ID above to begin watching.
+                                </p>
+
+                            </div>
+
+
+                            <iframe
+                                id="player"
+                                title="MoonTube Video Player"
+                                src=""
+                                allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                                allowfullscreen
+                                referrerpolicy="strict-origin-when-cross-origin"
+                            ></iframe>
+
+                        </div>
+
+
+                        <!-- VIDEO INFORMATION -->
+
+                        <div class="video-information">
+
+                            <div class="video-details">
+
+                                <p class="video-category">NOW PLAYING</p>
+
+                                <h2 id="video-title">Nothing playing yet</h2>
+
+                                <p id="video-description">
+                                    Your selected video information will appear here.
+                                </p>
+
+                            </div>
+
+                            <div class="video-actions">
+
+                                <button id="favorite-btn" class="action-button" type="button">
+                                    Add to Favorites
+                                </button>
+
+                                <button id="queue-add-btn" class="action-button" type="button">
+                                    Add to Queue
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- WATCH QUEUE -->
+
+                    <section class="content-section" id="queue-section">
+
+                        <div class="section-heading">
+
+                            <div>
+                                <p class="section-eyebrow">UP NEXT</p>
+                                <h2>Your Watch Queue</h2>
+                            </div>
+
+                            <button id="clear-queue-btn" class="text-button" type="button">
+                                Clear Queue
+                            </button>
+
+                        </div>
+
+                        <div id="queue-list" class="video-list">
+
+                            <div class="empty-state">
+                                <h3>Your queue is empty</h3>
+                                <p>Add videos to your queue to keep track of what you want to watch.</p>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- RECENTLY WATCHED -->
+
+                    <section class="content-section" id="recent-section">
+
+                        <div class="section-heading">
+
+                            <div>
+                                <p class="section-eyebrow">YOUR HISTORY</p>
+                                <h2>Recently Watched</h2>
+                            </div>
+
+                            <button id="clear-history-btn" class="text-button" type="button">
+                                Clear History
+                            </button>
+
+                        </div>
+
+                        <div id="recent-list" class="video-list">
+
+                            <div class="empty-state">
+                                <h3>No recently watched videos</h3>
+                                <p>Your viewing history will appear here.</p>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                </section>
+
+
+                <!-- EXPLORE VIEW -->
+
+                <section id="explore-view" class="page-view">
+
+                    <div class="page-heading">
+
+                        <p class="section-eyebrow">DISCOVER SOMETHING NEW</p>
+
+                        <h1>Explore</h1>
+
+                        <p>
+                            Enter a YouTube video URL above to discover and watch new content.
+                        </p>
+
+                    </div>
+
+                    <div class="explore-panel">
+
+                        <img src="banner.png" alt="">
+
+                        <h2>Explore your universe.</h2>
+
+                        <p>
+                            MoonTube is ready whenever you are.
+                        </p>
+
+                        <button id="explore-play-btn" class="hero-button" type="button">
+                            Find a Video
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FAVORITES VIEW -->
+
+                <section id="favorites-view" class="page-view">
+
+                    <div class="page-heading">
+
+                        <p class="section-eyebrow">YOUR COLLECTION</p>
+
+                        <h1>Favorites</h1>
+
+                        <p>Your saved videos, all in one place.</p>
+
+                    </div>
+
+                    <div id="favorites-list" class="video-list">
+
+                        <div class="empty-state">
+                            <h3>No favorites yet</h3>
+                            <p>Save videos to find them here later.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- RECENT VIEW -->
+
+                <section id="history-view" class="page-view">
+
+                    <div class="page-heading">
+
+                        <p class="section-eyebrow">YOUR VIEWING ACTIVITY</p>
+
+                        <h1>Recently Watched</h1>
+
+                        <p>Return to videos you have watched before.</p>
+
+                    </div>
+
+                    <div id="history-page-list" class="video-list"></div>
+
+                </section>
+
+
+                <!-- QUEUE VIEW -->
+
+                <section id="queue-view" class="page-view">
+
+                    <div class="page-heading">
+
+                        <p class="section-eyebrow">YOUR NEXT VIDEOS</p>
+
+                        <h1>Watch Queue</h1>
+
+                        <p>Keep all your videos organized.</p>
+
+                    </div>
+
+                    <div id="queue-page-list" class="video-list"></div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+
+                <footer class="footer">
+
+                    <div class="footer-brand">
+                        <img src="banner.png" alt="MoonTube">
+                        <span>MoonTube Ultimate</span>
+                    </div>
+
+                    <p>Your videos. Your universe.</p>
+
+                    <span class="footer-credit">MADE FOR THE LUNAR EXPERIENCE</span>
+
+                </footer>
+
+
+            </main>
+
+        </div>
+
+
+        <!-- NOTIFICATION -->
+
+        <div id="notification" class="notification hidden">
+            <span id="notification-message"></span>
+        </div>
+
+
     </div>
 
+
     <script src="script.js"></script>
+
 </body>
 </html>
